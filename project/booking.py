@@ -1,13 +1,31 @@
+from datetime import datetime
+
 class Booking():
-    def __init__(self, ID, car, customer, begin, end):
-        self.ID = ID
-        self.car = car
-        self.customer = customer
-        self.begin = begin
-        self.end = end
+    def __init__(self, carID, customerID):
+        self.carID = carID
+        self.customerID = customerID
+        self.begin = datetime.now()
+        self.end = None
+        self.total = 0
 
-    def transaction(self, ID):
+    def __str__(self):
+        return f"{self.carID}, {self.customerID}, {self.begin}, {self.end}, {self.total}"
+
+    def endBooking(self, price):
+        """sets the end time and call function __calc_price__"""
+        self.end = datetime.now()
+        self.__calc_price__(price)
+
+    def getID(self):
+        """get booking.ID"""
+        return f"[{self.carID}, {self.customerID}]"
+
+    def getTotal(self):
+        return self.total
+
+    def transaction(self, price):
         pass
 
-    def calc_price(self, begin, end, price):
-        pass
+    def __calc_price__(self, price):
+        """calculates the total price with the price per hour and the time between renting and returning the car"""
+        self.total = f"{round((self.end - self.begin).total_seconds() / 60 * price / 60, 2)}€"
