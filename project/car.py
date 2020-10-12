@@ -2,8 +2,10 @@ import uuid
 
 
 class Car():
-    def __init__(self, model, seats, location, price, available):
+    def __init__(self, color, brand, model, seats, location, price, available):
         self.ID = uuid.uuid4()
+        self.color = color
+        self.brand = brand
         self.model = model
         self.seats = seats
         self.location = location
@@ -45,6 +47,8 @@ class Car():
     def addBooking(self, booking):
         """car gets assigned one booking to a list where all bookings from one car are stored"""
         self.bookings.append(booking.getID())
+
+
 
     def showBookings(self):
         """show booking list of one car"""
