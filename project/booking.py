@@ -15,17 +15,21 @@ class Booking():
         """sets the end time and call function __calc_price__"""
         self.end = datetime.now()
         self.__calc_price__(price)
+        print(f"Rent ended: {self.end}")
+        self.transaction()
+
 
     def getID(self):
         """get booking.ID"""
         return f"[{self.carID}, {self.customerID}]"
 
     def getTotal(self):
+
         return self.total
 
-    def transaction(self, price):
-        pass
+    def transaction(self):
+        print(f"total cost: {self.total}")
 
     def __calc_price__(self, price):
         """calculates the total price with the price per hour and the time between renting and returning the car"""
-        self.total = f"{round((self.end - self.begin).total_seconds() / 60 * price / 60, 2)}€"
+        self.total = f"{round((self.end - self.begin).total_seconds() / 60 * price ,2)}€"

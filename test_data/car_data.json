@@ -1,0 +1,29 @@
+{
+  "car1": {
+    "color": "black",
+    "brand": "Mercedes-Benz",
+    "model": "A-Class",
+    "seats": 5,
+    "location": null,
+    "price": 0.30,
+    "available": true
+  },
+  "car2": {
+    "color": "white",
+    "brand": "Audi",
+    "model": "A3",
+    "seats": 5,
+    "location": null,
+    "price": 0.33,
+    "available": true
+  },
+  "car3": {
+    "color": "grey",
+    "brand": "BMW",
+    "model": "2er",
+    "seats": 5,
+    "location": null,
+    "price": 0.26,
+    "available": true
+  }
+}
