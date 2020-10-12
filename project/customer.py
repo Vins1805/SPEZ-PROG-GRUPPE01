@@ -38,4 +38,3 @@ class Customer():
         """call function setAvailability and call function booking.endBooking"""
         car.setAvailability()
         booking.endBooking(car.getPrice())
-

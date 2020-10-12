@@ -17,19 +17,16 @@ with open(customer_file) as json_file:
 car = car_data["car1"]
 customer = customer_data["customer2"]
 
-customer1 = Customer(customer["surname"],customer["name"],customer["driver_license"],customer["payment_methods"])
+customer1 = Customer(customer["surname"], customer["name"], customer["driver_license"], customer["payment_methods"])
 
-car1 = Car(car["color"],car["brand"],car["model"],car["seats"],car["location"],car["price"],car["available"])
+car1 = Car(car["color"], car["brand"], car["model"], car["seats"], car["location"], car["price"], car["available"])
 
 customer1.rentCar(car1)
-
 
 booking1 = Booking(car1.getID(), customer1.getID())
 print(f"Rent started: {booking1.begin}")
 car1.addBooking(booking1)
 
-
 sleep(5)
 
 customer1.returnCar(car1, booking1)
-

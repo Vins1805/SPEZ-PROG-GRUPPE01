@@ -1,5 +1,6 @@
 from datetime import datetime
 
+
 class Booking():
     def __init__(self, carID, customerID):
         self.carID = carID
@@ -18,13 +19,11 @@ class Booking():
         print(f"Rent ended: {self.end}")
         self.transaction()
 
-
     def getID(self):
         """get booking.ID"""
         return f"[{self.carID}, {self.customerID}]"
 
     def getTotal(self):
-
         return self.total
 
     def transaction(self):
@@ -32,4 +31,4 @@ class Booking():
 
     def __calc_price__(self, price):
         """calculates the total price with the price per hour and the time between renting and returning the car"""
-        self.total = f"{round((self.end - self.begin).total_seconds() / 60 * price ,2)}€"
+        self.total = f"{round((self.end - self.begin).total_seconds() / 60 * price, 2)}€"
