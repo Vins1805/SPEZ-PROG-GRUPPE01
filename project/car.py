@@ -29,7 +29,7 @@ class Car():
     def setModel(self):
         pass
 
-    def __setAvailablity__(self):
+    def setAvailability(self):
         """toggles the availability of a car"""
         self.available = not self.available
 

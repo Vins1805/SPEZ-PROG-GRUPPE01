@@ -1,6 +1,5 @@
 import uuid
 
-
 class Customer():
     def __init__(self, driver_license, payment_methods):
         self.ID = uuid.uuid4()
@@ -21,10 +20,10 @@ class Customer():
         pass
 
     def rentCar(self, car):
-        """call function __setAvailability__"""
-        car.__setAvailability__()
+        """call function setAvailability"""
+        car.setAvailability()
 
     def returnCar(self, car, booking):
-        """call function __setAvailability__ and call function booking.endBooking"""
-        car.__setAvailability__()
+        """call function setAvailability and call function booking.endBooking"""
+        car.setAvailability()
         booking.endBooking(car.getPrice())
