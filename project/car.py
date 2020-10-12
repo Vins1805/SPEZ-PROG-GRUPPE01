@@ -48,8 +48,6 @@ class Car():
         """car gets assigned one booking to a list where all bookings from one car are stored"""
         self.bookings.append(booking.getID())
 
-
-
     def showBookings(self):
         """show booking list of one car"""
         return self.bookings
