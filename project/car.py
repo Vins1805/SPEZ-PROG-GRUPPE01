@@ -13,11 +13,9 @@ class Car():
         self.available = available
         self.bookings = list()
 
-    def __str__(self):
-        return f"{self.ID}, {self.model}, {self.seats}, {self.location}, {self.price}, {self.available}"
-
     def __repr__(self):
-        return {'ID': self.ID, 'Model': self.model, 'Seats': self.seats, 'Location': self.location, 'Price': self.price}
+        return {'ID': self.ID, 'Color': self.color, 'Brand': self.brand, 'Model': self.model, 'Seats': self.seats,
+                'Location': self.location, 'Price': self.price, 'Available': self.available}
 
     def getID(self):
         return self.ID

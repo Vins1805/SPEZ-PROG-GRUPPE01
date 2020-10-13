@@ -9,11 +9,9 @@ class Customer():
         self.driver_license = driver_license
         self.payment_methods = payment_methods
 
-    def __str__(self):
-        return f"{self.ID}, {self.driver_license}, {self.payment_methods}"
-
     def __repr__(self):
-        return {"ID": self.ID, "Driver license": self.driver_license, "Payment methods": self.payment_methods}
+        return {"ID": self.ID, "Surname": self.surname, "Name": self.name, "Driver license": self.driver_license,
+                "Payment methods": self.payment_methods}
 
     def getID(self):
         """get customer.ID"""
@@ -24,13 +22,9 @@ class Customer():
 
     def rentCar(self, car):
         """call function setAvailability"""
-
         if self.driver_license == False:
-
             print("Please add a driver license")
-
         else:
-
             print(f"Renting {car.brand} {car.model}")
             car.setAvailability()
 
