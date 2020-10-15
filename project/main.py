@@ -2,7 +2,6 @@ from project.car import *
 from project.customer import Customer
 from project.booking import Booking
 from time import sleep
-import json
 from pathlib import Path
 import os
 
@@ -18,31 +17,32 @@ with open(customer_file) as json_file:
     customer_data = json.load(json_file)
 
 cars = list()
-cars.append(cars_data["car1"])
-cars.append(cars_data["car2"])
-cars.append(cars_data["car3"])
+for i in cars_data.values():
+    cars.append(i)
 
 customers = list()
-customers.append(customer_data["customer1"])
-customers.append(customer_data["customer2"])
-customers.append(customer_data["customer3"])
+for i in customer_data.values():
+    customers.append(i)
 
 bookings = list()
 
-car = cars[0]
-customer = customers[1]
+customer1 = Customer(customers[1]["surname"], customers[1]["name"], customers[1]["driver_license"],
+                     customers[1]["payment_methods"], customers[1]["renting"])
+car1 = Car(cars[0]["color"], cars[0]["brand"], cars[0]["model"], cars[0]["seats"], cars[0]["location"],
+           cars[0]["price"], cars[0]["available"])
 
-print(car.__str__())
-print(customer.__str__())
-
-customer1 = Customer(customer["surname"], customer["name"], customer["driver_license"], customer["payment_methods"])
-car1 = Car(car["color"], car["brand"], car["model"], car["seats"], car["location"], car["price"], car["available"])
+print(customer1.__str__())
+print(car1.__str__())
 
 customer1.rentCar(car1)
+
+print(customer1.__str__())
+print(car1.__str__())
 
 booking1 = Booking(car1.getID(), customer1.getID())
 print(f"Rent started: {booking1.begin}")
 car1.addBooking(booking1)
+customer1.addBooking(booking1)
 
 sleep(5)
 
@@ -52,3 +52,8 @@ print(booking1.__str__())
 
 for i in bookings:
     print(i)
+
+print(customer1.__str__())
+print(car1.__str__())
+
+print(customer1.toJSON())

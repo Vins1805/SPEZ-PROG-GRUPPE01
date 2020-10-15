@@ -1,9 +1,10 @@
 import uuid
+import json
 
 
 class Car():
     def __init__(self, color, brand, model, seats, location, price, available):
-        self.ID = uuid.uuid4()
+        self.ID = str(uuid.uuid4())
         self.color = color
         self.brand = brand
         self.model = model
@@ -16,6 +17,9 @@ class Car():
     def __repr__(self):
         return {'ID': self.ID, 'Color': self.color, 'Brand': self.brand, 'Model': self.model, 'Seats': self.seats,
                 'Location': self.location, 'Price': self.price, 'Available': self.available}
+
+    def toJSON(self):
+        return json.dumps(self.__dict__)
 
     def getID(self):
         return self.ID

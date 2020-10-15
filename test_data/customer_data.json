@@ -3,20 +3,21 @@
     "surname": "Marcus",
     "name": "Mueller",
     "driver_license": false,
-    "payment_methods": null
+    "payment_methods": null,
+    "renting": false
   },
-  "customer2":{
+  "customer2": {
     "surname": "Lilly",
     "name": "Hoffmann",
     "driver_license": true,
-    "payment_methods": null
+    "payment_methods": null,
+    "renting": false
   },
   "customer3": {
     "surname": "Jonas",
     "name": "Knall",
     "driver_license": true,
-    "payment_methods": null
+    "payment_methods": null,
+    "renting": false
   }
-    
-
 }

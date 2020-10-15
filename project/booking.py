@@ -1,5 +1,5 @@
 from datetime import datetime
-
+import json
 
 class Booking():
     def __init__(self, carID, customerID):
@@ -11,6 +11,9 @@ class Booking():
 
     def __str__(self):
         return f"{self.carID}, {self.customerID}, {self.begin}, {self.end}, {self.total}"
+
+    def toJSON(self):
+        return json.dumps(self.__dict__)
 
     def endBooking(self, price):
         """sets the end time and call function __calc_price__"""
