@@ -16,15 +16,15 @@ with open(car_file) as json_file:
 with open(customer_file) as json_file:
     customer_data = json.load(json_file)
 
-cars = list()
+cars = Cars()
 for i in cars_data.values():
-    cars.append(i)
+    cars.addCar(i)
 
-customers = list()
+customers = Customer()
 for i in customer_data.values():
-    customers.append(i)
+    customers.addCustomer(i)
 
-bookings = list()
+bookings = Bookings()
 
 customer1 = Customer(customers[1]["surname"], customers[1]["name"], customers[1]["driver_license"],
                      customers[1]["payment_methods"], customers[1]["renting"])
@@ -40,7 +40,6 @@ print(customer1.__str__())
 print(car1.__str__())
 
 booking1 = Booking(car1.getID(), customer1.getID())
-print(f"Rent started: {booking1.begin}")
 car1.addBooking(booking1)
 customer1.addBooking(booking1)
 

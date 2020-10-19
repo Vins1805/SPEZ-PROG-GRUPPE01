@@ -1,6 +1,8 @@
 import uuid
 import json
 
+from project.booking import Bookings
+
 
 class Customer():
     def __init__(self, surname, name, driver_license, payment_methods, renting):
@@ -10,11 +12,11 @@ class Customer():
         self.driver_license = driver_license
         self.payment_methods = payment_methods
         self.renting = renting
-        self.bookings = list()
+        self.bookings = Bookings()
 
-    def __repr__(self):
-        return {"ID": self.ID, "Surname": self.surname, "Name": self.name, "Driver license": self.driver_license,
-                "Payment methods": self.payment_methods, "Renting": self.renting}
+    def __str__(self):
+        return f"{self.surname},{self.name},{self.driver_license},{self.payment_methods}," \
+               f"{self.renting}"
 
     def toJSON(self):
         return json.dumps(self.__dict__)
@@ -47,8 +49,15 @@ class Customer():
 
     def addBooking(self, booking):
         """car gets assigned one booking to a list where all bookings from one car are stored"""
-        self.bookings.append(booking.getID())
+        self.bookings.addBooking(booking.getID())
 
     def showBookings(self):
         """show booking list of one car"""
         return self.bookings
+
+class Customers(list):
+
+    def addCustomer(self, customer):
+        self.append(customer)
+
+
