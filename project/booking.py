@@ -1,11 +1,13 @@
 from datetime import datetime
 import json
+from time import strptime
+
 
 class Booking():
     def __init__(self, carID, customerID):
         self.carID = carID
         self.customerID = customerID
-        self.begin = datetime.now()
+        self.begin = str(datetime.now())
         self.end = None
         self.total = 0
 
@@ -17,7 +19,7 @@ class Booking():
 
     def endBooking(self, price):
         """sets the end time and call function __calc_price__"""
-        self.end = datetime.now()
+        self.end = str(datetime.now())
         self.calc_price(price)
         print(f"Rent ended: {self.end}")
         self.transaction()
@@ -34,4 +36,11 @@ class Booking():
 
     def calc_price(self, price):
         """calculates the total price with the price per hour and the time between renting and returning the car"""
-        self.total = f"{round((self.end - self.begin).total_seconds() / 60 * price, 2)}€"
+        self.total = f"{round((strptime(self.end) - strptime(self.begin)).total_seconds() / 60 * price, 2)}€"
+
+class Bookings(list):
+
+    def addBooking(self, booking):
+        self.append(booking)
+
+
