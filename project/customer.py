@@ -55,9 +55,8 @@ class Customer():
         """show booking list of one car"""
         return self.bookings
 
+
 class Customers(list):
 
     def addCustomer(self, customer):
         self.append(customer)
-
-

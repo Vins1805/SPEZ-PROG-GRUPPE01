@@ -38,9 +38,8 @@ class Booking():
         """calculates the total price with the price per hour and the time between renting and returning the car"""
         self.total = f"{round((strptime(self.end) - strptime(self.begin)).total_seconds() / 60 * price, 2)}€"
 
+
 class Bookings(list):
 
     def addBooking(self, booking):
         self.append(booking)
-
-
