@@ -22,10 +22,9 @@ with open(customer_file) as json_file:
 
 cars = Cars()
 for i in cars_data.values():
-    car = Car(i["ID"],i["color"], i["brand"], i["model"], i["seats"], i["location"],
+    car = Car(i["ID"], i["color"], i["brand"], i["model"], i["seats"], i["location"],
               i["price"], i["available"])
     cars.addCar(car)
-
 
 customers = Customers()
 for i in customer_data.values():
@@ -33,8 +32,8 @@ for i in customer_data.values():
                         i["payment_methods"], i["renting"])
     customers.addCustomer(customer)
 
-
 bookings = Bookings()
+
 
 @app.route('/info')
 def info():
@@ -43,7 +42,6 @@ def info():
 
 @app.route('/show_customers')
 def show_customers():
-
     return str([customer.toJSON() for customer in customers])
 
 
@@ -81,8 +79,10 @@ def book_car():
 
     return s
 
+
 @app.route('/show_bookings')
 def show_bookings():
     return str([booking.toJSON() for booking in bookings])
+
 
 app.run(host='0.0.0.0', port=4000)
