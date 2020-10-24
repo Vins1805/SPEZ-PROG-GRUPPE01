@@ -1,0 +1,25 @@
+version: '3'
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: car_renting_backend
+    container_name: car_renting_backend_c
+    networks:
+      - ahp-spezprog-network
+    ports:
+      - 4000:4000
+
+  webapp:
+    build:
+      context: ./webapp
+      dockerfile: Dockerfile
+    image: car_renting_webapp
+    container_name: car_renting_webapp_c
+    networks:
+      - ahp-spezprog-network
+    ports:
+      - 81:80
+networks:
+  ahp-spezprog-network:

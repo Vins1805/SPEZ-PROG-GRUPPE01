@@ -1,9 +1,9 @@
 import os
 from flask import Flask, jsonify, request
 
-from project.booking import Booking
-from project.customer import *
-from project.car import *
+from backend.booking import Booking
+from backend.customer import *
+from backend.car import *
 from time import sleep
 from pathlib import Path
 

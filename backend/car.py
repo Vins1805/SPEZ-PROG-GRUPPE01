@@ -1,5 +1,5 @@
 import json
-from project.booking import Bookings
+from backend.booking import Bookings
 
 
 class Car():

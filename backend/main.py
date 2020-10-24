@@ -1,6 +1,6 @@
-from project.car import *
-from project.customer import Customer
-from project.booking import Booking
+from backend.car import *
+from backend.customer import Customer
+from backend.booking import Booking
 from time import sleep
 from pathlib import Path
 import os
