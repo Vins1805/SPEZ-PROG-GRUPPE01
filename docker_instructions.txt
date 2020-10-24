@@ -5,4 +5,4 @@ docker build -t car_renting_backend .
 docker run -it -p4000:4000 car_renting_backend
 
 # to go through the directory
-docker run -it -p4000:4000 car_renting_backend bash
+docker run -it -p4000:4000 car_renting_webapp bash
