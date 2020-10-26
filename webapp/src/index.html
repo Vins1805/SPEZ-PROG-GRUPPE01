@@ -11,14 +11,40 @@
             xmlHttp.send( null );
             return xmlHttp.responseText;
         }
-        function action() {
-            let result = httpGet("/api/show_cars");
-            document.getElementById("result").innerHTML = result;
+        function getCars() {
+            let cars = httpGet("/api/show_cars");
+            return cars;
+
         }
+
+        function getCustomers() {
+            let customers = httpGet("/api/show_customers");
+            return customers;
+
+        }
+
+        var list_cars = [];
+        var list_customers = [];
+        var json_cars = getCars();
+        var json_customers = getCustomers();
+
+        console.log(json_cars);
+
+        for(var i in json_cars){
+            console.log(i);
+
+        }
+     //   document.getElementById("result").innerHTML= list_cars.toString();
     </script>
 </head>
 <body>
-    <button type="submit" onclick="action()">Get Data</button>
+    <button type="submit" onclick="">Get Data</button>
     <div id="result">No results fetched.</div>
+
+    <table id="table_cars">
+    </table>
+    <table id="table_customers">
+
+    </table>
 </body>
 </html>
