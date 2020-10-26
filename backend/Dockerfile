@@ -4,6 +4,6 @@ RUN pip install flask
 
 WORKDIR /usr/src/app
 
-COPY .. .
+COPY ./src/ /usr/src/app
 
 CMD ["python","-u","server.py"]

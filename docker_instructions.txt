@@ -1,8 +1,10 @@
 # bulding a new image
-docker build -t car_renting_backend .
+docker build -t car_renting_webapp .
 
 # running a container
-docker run -it -p4000:4000 car_renting_backend
+docker run -it -p4000:4000 car_renting_webapp
 
 # to go through the directory
 docker run -it -p4000:4000 car_renting_webapp bash
+
+docker-compose up

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Renting</title>
+    <script>
+        function httpGet(theUrl) {
+            alert('ask ' + theUrl)
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open("GET", theUrl, false);
+            xmlHttp.send( null );
+            return xmlHttp.responseText;
+        }
+        function action() {
+            let result = httpGet("/api/show_cars");
+            document.getElementById("result").innerHTML = result;
+        }
+    </script>
+</head>
+<body>
+    <button type="submit" onclick="action()">Get Data</button>
+    <div id="result">No results fetched.</div>
+</body>
+</html>

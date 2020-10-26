@@ -1,18 +1,13 @@
-import os
-from flask import Flask, jsonify, request
+from flask import Flask, request
 
-from backend.booking import Booking
-from backend.customer import *
-from backend.car import *
-from time import sleep
-from pathlib import Path
+from booking import Booking
+from customer import *
+from car import *
 
 app = Flask(__name__)
 
-ROOT = Path(__file__).parent
-
-car_file = os.path.join(ROOT, "test_data/car_data.json")
-customer_file = os.path.join(ROOT, "test_data/customer_data.json")
+car_file = "test_data/car_data.json"
+customer_file = "test_data/customer_data.json"
 
 with open(car_file) as json_file:
     cars_data = json.load(json_file)
@@ -35,7 +30,7 @@ for i in customer_data.values():
 bookings = Bookings()
 
 
-@app.route('/info')
+@app.route('/')
 def info():
     return 'Hello HTW'
 
