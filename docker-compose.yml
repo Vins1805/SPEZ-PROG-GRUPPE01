@@ -9,7 +9,7 @@ services:
     networks:
       - ahp-spezprog-network
     ports:
-      - 4000:4000
+      - 80:4000
 
   webapp:
     build:
