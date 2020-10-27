@@ -42,8 +42,7 @@ def show_customers():
 
 @app.route('/show_cars')
 def show_cars():
-    return str([car.toJSON() for car in cars])
-
+    return str(cars.toJSON())
 
 @app.route('/book_car', methods=['POST'])
 def book_car():
