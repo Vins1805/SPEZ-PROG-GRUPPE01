@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Car Renting</title>
+    <link rel="stylesheet" href="style.css">
     <script>
         function httpGet(theUrl) {
             alert('ask ' + theUrl)
             var xmlHttp = new XMLHttpRequest();
             xmlHttp.open("GET", theUrl, false);
-            xmlHttp.send( null );
+            xmlHttp.send(null);
             return xmlHttp.responseText;
         }
+
         function getCars() {
             let cars = httpGet("/api/show_cars");
             return cars;
@@ -23,28 +25,55 @@
 
         }
 
-        var list_cars = [];
-        var list_customers = [];
-        var json_cars = getCars();
-        var json_customers = getCustomers();
+        var json_cars = JSON.parse(getCars());
+        var json_customers = JSON.parse(getCustomers());
+        var headersCar = ["ID","brand","available"];
+        var headersCustomer = ["ID","surname","renting"];
 
-        console.log(json_cars);
+        function constructTable(list,headers,table){
+            var tabelle = document.getElementById(table);
 
-        for(var i in json_cars){
-            console.log(i);
+            while(tabelle.hasChildNodes()){
+                tabelle.removeChild(tabelle.firstChild);
+            }
+
+            var row = tabelle.insertRow(0);
+
+            for(var i = 0; i < headers.length; i++){
+                row.insertCell(i).innerHTML = headers[i].toUpperCase();
+
+            }
+
+            for (var i = 0; i < list.length; i++){
+
+                var row1 = tabelle.insertRow(i+1);
+
+                for(var k = 0; k  < headers.length; k++){
+                    row1.insertCell(k).innerHTML = list[i][headers[k]];
+                }
+            }
+
 
         }
-     //   document.getElementById("result").innerHTML= list_cars.toString();
+
+
     </script>
 </head>
 <body>
-    <button type="submit" onclick="">Get Data</button>
-    <div id="result">No results fetched.</div>
+<button type="submit" onclick="constructTable(json_cars,headersCar,'table_cars')">Get Car Data</button>
+<button type="submit" onclick="constructTable(json_customers,headersCustomer,'table_customers')">Get Customer Data</button>
+<div>
 
-    <table id="table_cars">
-    </table>
-    <table id="table_customers">
+    <div>
+        <table id="table_cars">
+        </table>
+    </div>
+    <div>
+        <table id="table_customers">
+        </table>
+    </div>
 
-    </table>
+</div>
+
 </body>
 </html>

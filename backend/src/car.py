@@ -58,6 +58,3 @@ class Car():
 class Cars(list):
     def addCar(self, car):
         self.append(car)
-
-    def toJSON(self):
-        return {f"car{i + 1}": self[i].toJSON() for i in range(0, len(self))}
