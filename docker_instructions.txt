@@ -7,4 +7,8 @@ docker run -it -p4000:4000 car_renting_webapp
 # to go through the directory
 docker run -it -p4000:4000 car_renting_webapp bash
 
-docker-compose up
+docker-compose build
+
+docker-compose up -d
+
+docker-compose down
