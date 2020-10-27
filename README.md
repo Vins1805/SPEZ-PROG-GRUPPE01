@@ -105,6 +105,43 @@ Szenario using Postman:
     * if another customer tries to book a car with the id: 2, he gets an Error message
 * GET: localhost:4000/show_bookings
     * returns the list of all bookings; Example: Mueller's booking got added to the booking list
+    
+---
+
+## Lecture Sheet 3
+
+New Features:
+
+*Creating multiple Docker Images
+    *Backend 
+    *Frontend (User Interface)
+*Implementing an user interface
+
+Files added:
+
+*index.html (output for the JSON Datas)
+*Style.css (Stylesheet for index.html)
+*Dockerfile (Webapp)
+*default.conf (Nginx server configuration)
+*docker-compose.yml (Creating Back-End and Front- End Images and connecting them)
+
+Ports used in Docker- Compose:
+
+*81:80: Interface between Client and Frontend
+*80:4000: Interface between Frontend and Backend
+
+Why did we pick these ports:
+
+*80: port for internet communication protocols (HTTP)
+*81: port for data exchanges between computers (TCP), not officially taken
+*4000: port for data exchanges between computers (TCP)
+
+localhost:81/index.html:
+
+*By clicking on the “Get Car Data” and “Get Customer Data” buttons a table with car data and a table with customer data is created
+*Table with the car data shows the ID, brand and the status of the availability of the car
+*Table with the customer data shows the ID, surname and the renting status of the customer 
+
 
 
 

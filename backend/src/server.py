@@ -1,4 +1,6 @@
-from flask import Flask, request
+import json
+
+from flask import Flask, request, jsonify
 
 from booking import Booking
 from customer import *
@@ -37,12 +39,13 @@ def info():
 
 @app.route('/show_customers')
 def show_customers():
-    return str([customer.toJSON() for customer in customers])
+    return str([customer.toJSON() for customer in customers]).replace("'","")
 
 
 @app.route('/show_cars')
 def show_cars():
-    return str(cars.toJSON())
+    return str([car.toJSON() for car in cars]).replace("'","")
+
 
 @app.route('/book_car', methods=['POST'])
 def book_car():
