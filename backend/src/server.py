@@ -31,7 +31,6 @@ for i in customer_data.values():
 
 bookings = Bookings()
 
-
 @app.route('/')
 def info():
     return 'Hello HTW'

@@ -1,6 +1,6 @@
 {
   "car1": {
-    "ID": "1",
+    "_id": 1,
     "color": "black",
     "brand": "Mercedes-Benz",
     "model": "A-Class",
@@ -10,7 +10,7 @@
     "available": true
   },
   "car2": {
-    "ID": "2",
+    "_id": 2,
     "color": "white",
     "brand": "Audi",
     "model": "A3",
@@ -20,7 +20,7 @@
     "available": true
   },
   "car3": {
-    "ID": "3",
+    "_id": 3,
     "color": "grey",
     "brand": "BMW",
     "model": "2er",
