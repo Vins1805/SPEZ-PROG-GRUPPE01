@@ -5,6 +5,7 @@ from flask import Flask, request, jsonify
 from booking import Booking
 from customer import *
 from car import *
+from database import Db
 
 app = Flask(__name__)
 
@@ -17,15 +18,21 @@ with open(car_file) as json_file:
 with open(customer_file) as json_file:
     customer_data = json.load(json_file)
 
+db = Db()
+car_list = list(cars_data.values())
+customer_list = list(customer_data.values())
+db.bulk_insert(car_list, "car")
+db.bulk_insert(customer_list, "customer")
 cars = Cars()
-for i in cars_data.values():
-    car = Car(i["ID"], i["color"], i["brand"], i["model"], i["seats"], i["location"],
+
+for i in db.getTable("car"):
+    car = Car(i["_id"], i["color"], i["brand"], i["model"], i["seats"], i["location"],
               i["price"], i["available"])
     cars.addCar(car)
 
 customers = Customers()
-for i in customer_data.values():
-    customer = Customer(i["surname"], i["name"], i["driver_license"],
+for i in db.getTable("customer"):
+    customer = Customer(i["_id"],i["surname"], i["name"], i["driver_license"],
                         i["payment_methods"], i["renting"])
     customers.addCustomer(customer)
 
@@ -44,6 +51,8 @@ def show_customers():
 @app.route('/show_cars')
 def show_cars():
     return str([car.toJSON() for car in cars]).replace("'","")
+
+
 
 
 @app.route('/book_car', methods=['POST'])

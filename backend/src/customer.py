@@ -5,8 +5,8 @@ from booking import Bookings
 
 
 class Customer():
-    def __init__(self, surname, name, driver_license, payment_methods, renting):
-        self.ID = str(uuid.uuid4())
+    def __init__(self,_id, surname, name, driver_license, payment_methods, renting):
+        self._id = _id
         self.surname = surname
         self.name = name
         self.driver_license = driver_license
