@@ -3,8 +3,8 @@ from booking import Bookings
 
 
 class Car():
-    def __init__(self, ID, color, brand, model, seats, location, price, available):
-        self.ID = ID
+    def __init__(self, _id, color, brand, model, seats, location, price, available):
+        self._id = _id
         self.color = color
         self.brand = brand
         self.model = model
