@@ -24,6 +24,7 @@ services:
 
   mongo:
     image: mongo
+    container_name: car_renting_database_c
     restart: always
     environment:
       - MONGO_INITDB_DATABASE=test
@@ -34,13 +35,6 @@ services:
     volumes:
       - mongo-data:/data/db
 
-  mongo-express:
-    image: mongo-express
-    restart: always
-    ports:
-      - 8081:8081
-    networks:
-      - ahp-spezprog-network
 
 volumes:
   mongo-data:

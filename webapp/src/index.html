@@ -25,10 +25,12 @@
 
         }
 
+
+
         var json_cars = JSON.parse(getCars());
         var json_customers = JSON.parse(getCustomers());
-        var headersCar = ["ID","brand","available"];
-        var headersCustomer = ["ID","surname","renting"];
+        var headersCar = ["_id","brand","available"];
+        var headersCustomer = ["_id","surname","renting"];
 
         function constructTable(list,headers,table){
             var tabelle = document.getElementById(table);

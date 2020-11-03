@@ -112,39 +112,66 @@ Szenario using Postman:
 
 New Features:
 
-*Creating multiple Docker Images
-    *Backend 
-    *Frontend (User Interface)
-*Implementing an user interface
+* Creating multiple Docker Images
+    * Backend 
+    * Frontend (User Interface)
+* Implementing an user interface
 
 Files added:
 
-*index.html (output for the JSON Datas)
-*Style.css (Stylesheet for index.html)
-*Dockerfile (Webapp)
-*default.conf (Nginx server configuration)
-*docker-compose.yml (Creating Back-End and Front- End Images and connecting them)
+* index.html (output for the JSON Datas)
+* Style.css (Stylesheet for index.html)
+* Dockerfile (Webapp)
+* default.conf (Nginx server configuration)
+* docker-compose.yml (Creating Back-End and Front- End Images and connecting them)
 
 Ports used in Docker- Compose:
 
-*81:80: Interface between Client and Frontend
-*80:4000: Interface between Frontend and Backend
+* 81:80: Interface between Client and Frontend
+* 80:4000: Interface between Frontend and Backend
 
 Why did we pick these ports:
 
-*80: port for internet communication protocols (HTTP)
-*81: port for data exchanges between computers (TCP), not officially taken
-*4000: port for data exchanges between computers (TCP)
+* 80: port for internet communication protocols (HTTP)
+* 81: port for data exchanges between computers (TCP), not officially taken
+* 4000: port for data exchanges between computers (TCP)
 
 localhost:81/index.html:
 
-*By clicking on the “Get Car Data” and “Get Customer Data” buttons a table with car data and a table with customer data is created
-*Table with the car data shows the ID, brand and the status of the availability of the car
-*Table with the customer data shows the ID, surname and the renting status of the customer 
+* By clicking on the “Get Car Data” and “Get Customer Data” buttons a table with car data and a table with customer data is created
+* Table with the car data shows the ID, brand and the status of the availability of the car
+* Table with the customer data shows the ID, surname and the renting status of the customer 
 
 
+##Lecture Sheet 4
+
+
+New Features:
+* MongoDB added
+* updated server with the database
+* docker-compose.yml extended by MongoDB
+    * 27017: Port for the Database
+    * persistence
+New Files:
+* database.py
+New Classes:
+* Db()
+    * delete_all(table)
+        * deletes all entries in a table
+    * insert(dict, table)
+        * adds an entry in a table
+    * bulk_insert(list, table)
+        * adds multiple entries in a table
+    * find(key, value, table)
+        * finds an entry in a table by the key: value
+    * update(id, column, value, table)
+        * updates a column value from an entry by id
+    * getTable(table)
+        * returns all entries of a table
 
 
 [github]: https://github.com/s0551489/SPEZ-PROG-GRUPPE01
 [google-doc]: https://docs.google.com/document/d/1Atfu4mfd_iCKmvobBXp0uDsa3Y7Ef8PWUSXOQ4B3fmU/edit?usp=sharing
+
+
 

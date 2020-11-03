@@ -23,7 +23,9 @@ car_list = list(cars_data.values())
 customer_list = list(customer_data.values())
 db.bulk_insert(car_list, "car")
 db.bulk_insert(customer_list, "customer")
+db.insert(Car("4","yellow","Audi","A8","5",None,2,True).toJSON(),"car")
 cars = Cars()
+
 
 for i in db.getTable("car"):
     car = Car(i["_id"], i["color"], i["brand"], i["model"], i["seats"], i["location"],
@@ -66,10 +68,11 @@ def book_car():
         if customer.name == customer_name and customer.renting == False and customer.driver_license == True:
             for car in cars:
                 remember_me = True
-                if car.ID == car_id and car.available == True:
+                if car._id == car_id and car.available == True:
                     print(customer)
                     customer.rentCar(car)
-                    booking = Booking(car.ID, customer.ID)
+                    booking = Booking(car._id, customer._id)
+                    db.insert(booking.toJSON(), "booking")
                     car.addBooking(booking)
                     customer.addBooking(booking)
                     bookings.addBooking(booking)
@@ -84,10 +87,9 @@ def book_car():
 
     return s
 
-
 @app.route('/show_bookings')
 def show_bookings():
-    return str([booking.toJSON() for booking in bookings])
+    return str([booking.toJSON() for booking in bookings]).replace("'","")
 
 
 app.run(host='0.0.0.0', port=4000)

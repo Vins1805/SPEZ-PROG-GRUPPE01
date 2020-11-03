@@ -15,7 +15,7 @@ class Car():
         self.bookings = Bookings()
 
     def __str__(self):
-        return f"{self.ID},{self.color},{self.brand},{self.model}," \
+        return f"{self._id},{self.color},{self.brand},{self.model}," \
                f"{self.seats},{self.location},{self.price},{self.available}"
 
     def toJSON(self):
