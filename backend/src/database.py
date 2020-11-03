@@ -6,7 +6,7 @@ from pymongo import MongoClient, UpdateMany, UpdateOne, InsertOne, DeleteMany
 
 class Db():
     def __init__(self):
-        self.host = 'localhost'
+        self.host = 'car_renting_database_c'
         self.port = 27017
         self.con = MongoClient(self.host, self.port)
         self.db = self.con.car_sharing_database
@@ -27,9 +27,9 @@ class Db():
             print("Wrong ID or column")
 
 
-    def insert(self, data: dict, table: str):
+    def insert(self, data: str, table: str):
         try:
-            self.db[table].insert_one(data)
+            self.db[table].insert_one(json.loads(data))
         except:
             print("ID already exists.")
 

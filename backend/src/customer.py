@@ -15,7 +15,7 @@ class Customer():
         self.bookings = Bookings()
 
     def __str__(self):
-        return f"{self.surname},{self.name},{self.driver_license},{self.payment_methods}," \
+        return f"{self._id},{self.surname},{self.name},{self.driver_license},{self.payment_methods}," \
                f"{self.renting}"
 
     def toJSON(self):
