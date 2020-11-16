@@ -13,24 +13,27 @@
             return xmlHttp.responseText;
         }
 
+
         function getCars() {
-            let cars = httpGet("/api/show_cars");
+            let cars = httpGet("https://44d0cbqhrj.execute-api.eu-central-1.amazonaws.com/Gruppe1Car");
+            console.log(cars);
             return cars;
 
         }
 
         function getCustomers() {
-            let customers = httpGet("/api/show_customers");
+            let customers = httpGet("https://44d0cbqhrj.execute-api.eu-central-1.amazonaws.com/Gruppe1Customer");
             return customers;
 
         }
 
+        //constructTable(json_cars,headersCar,'table_cars';
 
 
         var json_cars = JSON.parse(getCars());
         var json_customers = JSON.parse(getCustomers());
-        var headersCar = ["_id","brand","available"];
-        var headersCustomer = ["_id","surname","renting"];
+        var headersCar = ["ID","brand","available"];
+        var headersCustomer = ["ID","surname","renting"];
 
         function constructTable(list,headers,table){
             var tabelle = document.getElementById(table);
